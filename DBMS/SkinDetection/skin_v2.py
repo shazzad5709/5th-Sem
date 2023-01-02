@@ -9,7 +9,7 @@ from PIL import Image
 
 start_time = time.time()
 accuracy_file = open('DBMS/SkinDetection/Accuracy_data.txt', 'w')
-k_fold = 1
+k_fold = 5
 train = 500
 test = 55
 
@@ -62,7 +62,7 @@ for ki in range(k_fold):
 
 
     prob = NP.zeros([256,256,256])
-    f = open('DBMS/SkinDetection/data.txt', 'r')
+    f = open('DBMS/SkinDetection/data_v2.txt', 'r')
     threshold = 1.0
     count = 0
     for i in range(256):

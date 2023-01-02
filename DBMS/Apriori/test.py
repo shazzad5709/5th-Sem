@@ -16,3 +16,4 @@ frequent_item_sets = apriori(dataset, min_support=0.5, max_len=3)
 # Print the frequent item sets
 for item_set in frequent_item_sets:
     print(item_set)
+    print()
