@@ -9,7 +9,8 @@ div {
     font-size: 103%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.top {
+
+.header {
     background-color:#141C2F;
     height: 22%;
     width: 99%;
@@ -19,10 +20,10 @@ div {
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    font-size: 160%;
+    /* font-size: 160%; */
 }
 
-.sidebar {
+.navbar {
     width: 33%;
     float: left;
     height: 73%;
