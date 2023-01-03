@@ -4,6 +4,5 @@ public class PrintRequest {
     PageSaveMode pageSaveMode;
     BoosterMode boosterMode;
 
-    public void renderPreview() {
-    }
+    
 }

@@ -11,9 +11,7 @@ class Apriori(object):
     def fit(self, filePath):
         """Run the apriori algorithm, return the frequent *-term sets."""
         # Initialize some variables to hold the tmp result
-        transListSet = self.getTransListSet(
-            filePath
-        )  # get transactions (list that contain sets)
+        transListSet = self.getTransListSet(filePath)  # get transactions (list that contain sets)
         itemSet = self.getOneItemSet(transListSet)  # get 1-item set
         itemCountDict = defaultdict(int)  # key=candiate k-item(k=1/2/...), value=count
         freqSet = dict()  # a dict store all frequent *-items set
@@ -40,7 +38,7 @@ class Apriori(object):
             )  # frequent k-terms set pruning step
 
         #
-        self.itemCountDict = itemCountDict  # 所有候选项以及出现的次数(不仅仅是频繁项),用来计算置信度啊
+        self.itemCountDict = itemCountDict 
         self.freqSet = freqSet  # Only frequent items(a dict: freqSet[1] indicate frequent 1-term set )
         return itemCountDict, freqSet
 
