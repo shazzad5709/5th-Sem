@@ -3,13 +3,7 @@ public class TonerSaveMode extends PrintMode{
     
     @Override
     public void printMode(PrintMode x) {
-        if(tonerSavingLevel=="high") {
-    
-        }
-        else if(tonerSavingLevel=="medium") {
-        }
-        else if(tonerSavingLevel=="low") {
-        }
+        // adjustColorIntensity();
     }
 
 
