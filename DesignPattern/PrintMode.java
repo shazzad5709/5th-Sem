@@ -1,8 +1,8 @@
 public abstract class PrintMode {
-    int pageNo;
-    int pageSize;
+    Integer pageNo;
+    Integer pageSize;
     String orientation;
-    int colorIntensity;
+    Integer colorIntensity;
     float cost;
 
     abstract void printMode(PrintMode x);
