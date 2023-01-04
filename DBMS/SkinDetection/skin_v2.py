@@ -2,7 +2,6 @@ import glob
 import os
 import random
 import time
-from cgi import test
 from cmath import pi
 import numpy as NP
 from PIL import Image

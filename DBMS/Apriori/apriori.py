@@ -37,7 +37,6 @@ class Apriori(object):
                 transListSet, currCandiItemSet, itemCountDict, self.minSupp
             )  # frequent k-terms set pruning step
 
-        #
         self.itemCountDict = itemCountDict 
         self.freqSet = freqSet  # Only frequent items(a dict: freqSet[1] indicate frequent 1-term set )
         return itemCountDict, freqSet
@@ -45,7 +44,7 @@ class Apriori(object):
     def getSpecRules(self, rhs):
         """Specify a right item, construct rules for it"""
         if rhs not in self.itemSet:
-            print("Please input a term contain in the term-set !")
+            print("Please input a term contain in the term-set!")
             return None
 
         rules = dict()
