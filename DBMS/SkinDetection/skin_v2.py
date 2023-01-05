@@ -2,21 +2,20 @@ import glob
 import os
 import random
 import time
-from cgi import test
 from cmath import pi
 import numpy as NP
 from PIL import Image
 
 start_time = time.time()
-accuracy_file = open('DBMS/SkinDetection/Accuracy_data.txt', 'w')
-k_fold = 5
-train = 500
-test = 55
+accuracy_file = open('/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/Accuracy_data.txt', 'w')
+k_fold = 3
+train = 50
+test = 10
 
 true_pos, true_neg, false_pos, false_neg = 0, 0, 0, 0
 
-image_folder = 'DBMS/SkinDetection/ibtd'
-mask_folder = 'DBMS/SkinDetection/ibtd/mask'
+image_folder = '/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/ibtd'
+mask_folder = '/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/ibtd/Mask'
 
 images = os.listdir(image_folder)
 images = images[:len(images)-2]
@@ -36,8 +35,8 @@ for ki in range(k_fold):
     total_non_skin = 0
 
     for index in range(train):
-        img = Image.open('DBMS/SkinDetection/ibtd/'+str(indices[index])+'.jpg')
-        mask = Image.open('DBMS/SkinDetection/ibtd/Mask/'+str(indices[index])+'.bmp')
+        img = Image.open('/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/ibtd/'+str(indices[index])+'.jpg')
+        mask = Image.open('/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/ibtd/Mask/'+str(indices[index])+'.bmp')
         for(pixel, pix_mask) in zip(img.getdata(), mask.getdata()):
             if pix_mask[0]<255 or pix_mask[1]<255 or pix_mask[2]<255:
                 skin_pix_count[pixel[0]][pixel[1]][pixel[2]] += 1
@@ -62,7 +61,7 @@ for ki in range(k_fold):
 
 
     prob = NP.zeros([256,256,256])
-    f = open('DBMS/SkinDetection/data_v2.txt', 'r')
+    f = open('/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/data_v2.txt', 'r')
     threshold = 1.0
     count = 0
     for i in range(256):
@@ -72,8 +71,8 @@ for ki in range(k_fold):
                 prob[i][j][k]=float(line)
     
     for index in range(test):                                     
-        testImg = Image.open('DBMS/SkinDetection/ibtd/'+str(indices[index+train])+'.jpg')
-        testMask = Image.open('DBMS/SkinDetection/ibtd/Mask/'+str(indices[index+train])+'.bmp')
+        testImg = Image.open('/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/ibtd/'+str(indices[index+train])+'.jpg')
+        testMask = Image.open('/home/iit/Desktop/5th-Sem/DBMS/SkinDetection/ibtd/Mask/'+str(indices[index+train])+'.bmp')
         pixel = testImg.load()
         mask_pix = testMask.load()
         for y in range(testImg.size[1]):
