@@ -78,8 +78,8 @@ int main()
         }
     }
     flag=hasCycle();
-    
+
     (flag)?
-        cout << "Conflict serialization not possible" :
-        cout << "Conflict serialization possible";
+        cout << "Conflict Serialization NOT POSSIBLE" :
+        cout << "Conflict Serialization POSSIBLE";
 }
