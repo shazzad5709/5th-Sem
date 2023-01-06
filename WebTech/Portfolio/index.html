@@ -5,21 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shazzad</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- linking css file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
+    
+    
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top navbarScroll">
         <div class="container">
             <a class="navbar-brand" href="#">Shazzad</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="'navbar-toggler-icon"></span>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#education">Education</a>
@@ -31,6 +42,7 @@
                         <a class="nav-link" href="#hobbies">Hobbies</a>
                     </li>
                 </ul>
+                
             </div>
         </div>
     </nav>
@@ -47,11 +59,136 @@
         </div>
     </section>
 
-    <!--Education section  -->
+    <!--About section  -->
     <section id="about">
-        
+        <div class="container mt-4 pt4">
+            <h1 class="text-center">About Me</h1>
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <img src="images/about.jpg" class="imageAboutPage" alt="">
+                </div>
+                <div class="col-lg-8">
+                    <p> My name is Shazzad Hossain. I am an undergrad student at Institute of Information Technology,
+                        University of Dhaka, studying Software Engineering.
+                    </p>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Name: Shazzad Hossain</li>
+                                <li>Age: 22</li>
+                                <li>Occupation: Student</li>
+                                <li>Email: bsse1203@iit.du.ac.bd</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <p> This website is part of CSE502: Web Technology course.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Education section  -->
+    <section id="education">
+        <div class="container mt-4 pt4">
+            <h1 class="text-center">Education</h1>
+            <table class="table table-dark table-hover">
+              <thead>
+                <tr>
+                  <th>Degree</th>
+                  <th>Year</th>
+                  <th>Result</th>
+                  <th>Group/Major</th>
+                  <th>Institute</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SSC</td>
+                  <td>2017</td>
+                  <td>GPA 5.00</td>
+                  <td>Science</td>
+                  <td>BAF Shaheen College Dhaka</td>
+                </tr>
+                <tr>
+                    <td>HSC</td>
+                    <td>2019</td>
+                    <td>GPA 5.00</td>
+                    <td>Science</td>
+                    <td>Adamjee Cantonment College</td>
+                </tr>
+                <tr>
+                    <td>Undergrad</td>
+                    <td>202x</td>
+                    <td>CGPA ...</td>
+                    <td>Software Engineering</td>
+                    <td>University of Dhaka</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </section>
+
+    <!-- Awards section-->
+    <section id="awards">
+        <div class="container">
+            <h1 class="text-center">Awards and Scholarships</h1>
+            <div class="row">
+                <div class="col-lg-6 mt-6">
+                    <div class="card awardsText">
+                        <div class="card-body">
+                            <i class="fas awardsIcon fa-layer-group"></i>
+                            <h4 class="card-title mt-3">Board Scholarships</h4>
+                            <p class="card-text mt-3"> Talentbool<br>PSC Examination, 2011
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col-lg-6 mt-6">
+                    <div class="card awardsText">
+                        <div class="card-body">
+                            <i class='fas awardsIcon fa-layer-group'></i>
+                            <h4 class="card-title mt-3">Board Scholarships</h4>
+                            <p class="card-text mt-3"> General<br>HSC Examination, 2019
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies section-->
+    <section id="hobbies">
+        <div class="container">
+            <h1 class="text-center">Hobbies</h1>
+            <div class="row">
+                <div class="col-lg-4 mt-4"></div>
+                <div class="col-lg-4 mt-4">
+                    <ul class="hobby">
+                        <li class="ok">Gaming</li>
+                        <li class="ok">Reading Books</li>
+                        <li class="ok">Sports</li>
+                        <li class="ok">Fitness</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mt-4"></div>
+            </div>
+        </div>
     </section>
 
 
+
+    <script src="script.js"></script>
 </body>
+ <!-- footer section-->
+ <footer id="footer">
+    <div class="container-fluid">
+        <div class="fa mt-4">
+            <p class="copy"><i class="fa fa-copyright"></i>BSSE 1203</p>
+        </div>
+    </div>
+</footer>
 </html>

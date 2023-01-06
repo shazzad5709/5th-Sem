@@ -20,3 +20,55 @@
     transform: translate(-50%, -55%);
     color: white;
 }
+/* about section image css */
+.imageAboutPage {
+    width: 100%;
+}
+
+/* awards section css */
+.awardsText.card {
+    height: 200px;
+  }
+.awardsIcon {
+    font-size: 36px;
+    text-align: center;
+    width: 100%;
+}
+.card-title {
+    text-align: center;
+}
+
+.card-text {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
+
+/* display background color black on navbar scroll */
+.navbarScroll.navbarDark {
+    background-color: black;
+}
+
+#about, #awards, #education, #hobbies {
+    margin-top: 20rem;
+    padding-top: 20rem;
+}
+#hobbies {
+    padding-bottom: 20rem;
+}
+
+#footer {
+    background-color: #808080;
+    text-align: center;
+}
+
+.copy {
+    font-size: 1.5rem;
+}
+
+.hobby {
+    font-size: 1.5rem;
+    margin-left: 8rem;
+}
+
