@@ -58,6 +58,7 @@
     padding-bottom: 20rem;
 }
 
+
 #footer {
     background-color: #808080;
     text-align: center;
@@ -72,3 +73,6 @@
     margin-left: 8rem;
 }
 
+.table {
+    font-size: 1.3rem;
+}
