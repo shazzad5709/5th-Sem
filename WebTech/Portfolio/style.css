@@ -25,6 +25,10 @@
     width: 100%;
 }
 
+#top {
+    font-family: 'Lucida Calligraphy';
+}
+
 /* awards section css */
 .awardsText.card {
     height: 200px;
@@ -51,21 +55,22 @@
 }
 
 #about, #awards, #education, #hobbies {
-    margin-top: 20rem;
-    padding-top: 20rem;
+    margin-top: 4rem;
+    padding-top: 4rem;
 }
 #hobbies {
-    padding-bottom: 20rem;
+    padding-bottom: 10rem;
 }
 
 
 #footer {
-    background-color: #808080;
+    background-color: rgb(39, 39, 39);
     text-align: center;
 }
 
 .copy {
-    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: whitesmoke;
 }
 
 .hobby {
