@@ -19,6 +19,7 @@
     left: 50%;
     transform: translate(-50%, -55%);
     color: white;
+    font-family: 'Amaranth';
 }
 /* about section image css */
 .imageAboutPage {
