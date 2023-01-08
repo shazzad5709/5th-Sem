@@ -58,7 +58,7 @@ int main()
         line.push_back(read);
     }
     
-    adj_matrix[0][2] = 0;
+   //  adj_matrix[0][2] = 0;
     for (int i = 0; i < line.size(); i++)
     {
         for (int j = i + 1; j < line.size(); j++)
