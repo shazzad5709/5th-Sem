@@ -16,18 +16,22 @@ if __name__ == '__main__':
 
     data = genfromtxt('DBMS/UCI/BreastCancer/Data/wdbc.csv', delimiter=',')
     data = data[:,1:]
+    data[:,[30,0]]=data[:,[0,30]]
+    df=pd.DataFrame(data)
+    # print(df)
 
-    X, y = data[:, 0:-1], data[:, 0]
-    print(X.shape)
-    print(y.shape)
+    X, y = df.iloc[:, 0:-1], df.iloc[:, -1]
+    # print(X.shape)
+    # print(y.shape)
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.5, random_state=None
+        X, y, test_size=0.2, random_state=None
     )
     # print(X_train.shape, X_test.shape)
 
-    nb = NaiveBayes()
+    nb = GaussianNB()
     nb.fit(X_train, y_train)
+    # print(nb.score(X_test, y_test))
     predictions = nb.predict(X_test)
-    print("Confusion Matrix: \n", confusion_matrix(y_test, predictions))
-    print("Accuracy: ",accuracy_score(y_test, predictions)*100, "%")
-    # print("Naive Bayes classification accuracy", accuracy(y_test, predictions))
+    # print("Confusion Matrix: \n", confusion_matrix(y_test, predictions))
+    # print("Accuracy: ",accuracy_score(y_test, predictions)*100, "%")
+    print(f'Accuracy: {round(accuracy(y_test, predictions), 6)*100}%')
