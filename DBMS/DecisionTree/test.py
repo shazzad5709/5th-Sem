@@ -15,8 +15,10 @@ def _confusion_matrix(y_true, y_pred):
 
         return [[tp, fp], [fn, tn]]
 
+
 def accuracy(y_test, y_pred):
     return np.sum(y_test == y_pred) / len(y_test)
+
 
 if __name__ == '__main__':
     data = np.genfromtxt('DBMS/DecisionTree/Data/Breast_cancer_data.csv', dtype = 'i8', delimiter=',')

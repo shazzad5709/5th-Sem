@@ -20,9 +20,11 @@ class DecisionTree:
         self.n_features=n_features
         self.root=None
 
+
     def fit(self, X, y):
         self.n_features = X.shape[1] if not self.n_features else min(X.shape[1],self.n_features)
         self.root = self._grow_tree(X, y)
+
 
     def _grow_tree(self, X, y, depth=0):
         n_samples, n_feats = X.shape
@@ -85,10 +87,12 @@ class DecisionTree:
         information_gain = parent_entropy - child_entropy
         return information_gain
 
+
     def _split(self, X_column, split_thresh):
         left_idxs = np.argwhere(X_column <= split_thresh).flatten()
         right_idxs = np.argwhere(X_column > split_thresh).flatten()
         return left_idxs, right_idxs
+
 
     def _entropy(self, y):
         hist = np.bincount(y)
@@ -101,8 +105,10 @@ class DecisionTree:
         value = counter.most_common(1)[0][0]
         return value
 
+
     def predict(self, X):
         return np.array([self._traverse_tree(x, self.root) for x in X])
+
 
     def _traverse_tree(self, x, node):
         if node.is_leaf_node():

@@ -10,6 +10,7 @@ class RandomForest:
         self.n_features=n_feature
         self.trees = []
 
+
     def fit(self, X, y):
         self.trees = []
         for _ in range(self.n_trees):
@@ -20,15 +21,18 @@ class RandomForest:
             tree.fit(X_sample, y_sample)
             self.trees.append(tree)
 
+
     def _bootstrap_samples(self, X, y):
         n_samples = X.shape[0]
         idxs = np.random.choice(n_samples, n_samples, replace=True)
         return X[idxs], y[idxs]
 
+
     def _most_common_label(self, y):
         counter = Counter(y)
         most_common = counter.most_common(1)[0][0]
         return most_common
+
 
     def predict(self, X):
         predictions = np.array([tree.predict(X) for tree in self.trees])
