@@ -1,0 +1,24 @@
+body {
+    font-family: 'Monaco';
+    margin-right: 15px;
+}
+.row, .col  {
+    outline-width: 2px;
+    outline-color: black;
+}
+.card {
+    width: 100%;
+    text-align: center;
+    outline-width: 1px;
+    outline-color: black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.btn {
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
