@@ -63,7 +63,7 @@ class Apriori(object):
         return self.itemCountDict[item] / self.transLength
 
     def getJoinedItemSet(self, termSet, k):
-        """Generate new k-terms candiate itemset"""
+        """Generate new k-terms candidate itemset"""
         return set(
             [
                 term1.union(term2)
