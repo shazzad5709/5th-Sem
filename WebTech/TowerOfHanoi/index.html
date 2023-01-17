@@ -5,52 +5,55 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="row">
-        <div class="col 4" id="first">
-            <button type="button" class="btn btn-light" id="b2">2</button>
-            <button type="button" class="btn btn-light" id="b4">4</button>
-            <button type="button" class="btn btn-light" id="b3">3</button>
-            <button type="button" class="btn btn-light" id="b1">1</button>
+<body "position: relative;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" >
+        <div class="row"">
+            <div class="col 4" id="first">
+                <button type="button" class="btn btn-light cb" id="b2">2</button>
+                <button type="button" class="btn btn-light cb" id="b4">4</button>
+                <button type="button" class="btn btn-light cb" id="b3">3</button>
+                <button type="button" class="btn btn-light cb" id="b1">1</button>
+                
+            </div>
+            <div class="col 4" id="second">
+                
+            </div>
+            <div class="col 4" id="third">
+                
+            </div>
         </div>
-        <div class="col 4" id="second">
-            <button type="button" class="btn btn-light" id="e1"></button>
-            <button type="button" class="btn btn-light" id="e2"></button>
-            <button type="button" class="btn btn-light" id="e3"></button>
-            <button type="button" class="btn btn-light" id="e4"></button>
+        <div class="row cardrow">
+            <div class="col 4">
+                <div class="card">1</div>
+            </div>
+            <div class="col 4">
+                <div class="card">2</div>
+            </div>
+            <div class="col 4">
+                <div class="card">3</div>
+            </div>
         </div>
-        <div class="col 4" id="third">
-            <button type="button" class="btn btn-light" id="e5"></button>
-            <button type="button" class="btn btn-light" id="e6"></button>
-            <button type="button" class="btn btn-light" id="e7"></button>
-            <button type="button" class="btn btn-light" id="e8"></button>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="move12()">1->2</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="move21()">2->1</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="move31()">3->1</button>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col card">1</div>
-        <div class="col card">2</div>
-        <div class="col card">2</div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-dark" id="12" onclick="move12()">1->2</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-dark" id="23" onclick="move23()">2->3</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-dark" id="31" onclick="move31()">3->1</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-dark" id="32" onclick="move32()">3->2</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-dark" id="21" onclick="move21()">2->1</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-dark" id="13" onclick="move13()">1->3</button>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="move13()">1->3</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="move23()">2->3</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="move32()">3->2</button>
+            </div>
         </div>
     </div>
 
