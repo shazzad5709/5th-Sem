@@ -52,13 +52,12 @@ int main()
     vector<string> line;
     string read;
     ifstream f;
-    f.open("input.txt");
+    f.open("input2.txt");
     while(getline(f, read))
     {
         line.push_back(read);
     }
     
-   //  adj_matrix[0][2] = 0;
     for (int i = 0; i < line.size(); i++)
     {
         for (int j = i + 1; j < line.size(); j++)
@@ -69,17 +68,17 @@ int main()
                 {
                     int a = int(line[i][1]) - 49;
                     int b = int(line[j][1]) - 49;
+                    
                     if (a != b)
-                    {
                         adj_matrix[a][b] = 1;
-                    }
                 }
             }
         }
     }
+    
     flag=hasCycle();
 
     (flag)?
-        cout << "Conflict Serialization NOT POSSIBLE" :
-        cout << "Conflict Serialization POSSIBLE";
+        cout << "\nConflict Serialization NOT POSSIBLE\n\n" :
+        cout << "\nConflict Serialization POSSIBLE\n\n";
 }

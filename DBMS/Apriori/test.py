@@ -1,7 +1,7 @@
 from apriori import Apriori
 
 if __name__ == '__main__':
-    filePath = 'D:/Coding/5th-Sem/DBMS/Apriori/data/retail_dataset.csv'
+    filePath = 'DBMS/Apriori/data/retail_dataset.csv'
     minSup = 0.2
     # minSup = float(input('Enter Min Support: '))
     minConf = 0.4
@@ -9,7 +9,7 @@ if __name__ == '__main__':
     obj = Apriori(minSup, minConf)
     itemCountDict, freqSet = obj.fit(filePath)
     for key, value in freqSet.items():
-        print('frequent {}-term set: '.format(key))
+        print('Frequent {}-term set: '.format(key))
         print('-'*20)
         for itemset in value:
             print(list(itemset))
