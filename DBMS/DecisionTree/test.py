@@ -38,14 +38,12 @@ if __name__ == '__main__':
     )
 
     clf = DecisionTree(max_depth=10)
-    clf1 = DecisionTreeClassifier(criterion="entropy")
     clf.fit(X_train, y_train)
-    clf1.fit(X_train, y_train)
     predictions = clf.predict(X_test)   
 
     acc = accuracy(y_test, predictions)
 
-    print("Confusion Matrix: \n", _confusion_matrix(y_test, predictions)[0], "\n", _confusion_matrix(y_test, predictions)[1])
+    # print("Confusion Matrix: \n", _confusion_matrix(y_test, predictions)[0], "\n", _confusion_matrix(y_test, predictions)[1])
     print(f'{acc*100:.4f}%' )
     
     features = [
@@ -58,7 +56,5 @@ if __name__ == '__main__':
         'Bland Chromatin', 
         'Normal Nucleoli', 
         'Mitoses']
-        
-    clf.print_tree(feature_names=features)
 
-    # print(tree.export_text(clf1, show_weights=True))
+    clf.print_tree(feature_names=features)
