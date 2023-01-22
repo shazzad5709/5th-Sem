@@ -2,8 +2,11 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
+from matplotlib import pyplot as plt
 from DecisionTree import DecisionTree
-
+from sklearn import tree
+from numpy import genfromtxt
+from sklearn.tree import DecisionTreeClassifier
 
 
 def _confusion_matrix(y_true, y_pred):
@@ -26,15 +29,36 @@ if __name__ == '__main__':
     data[:,[8,0]]=data[:,[0,8]]
     X, y = data[:, 0:-1], data[:, -1]
 
+    # data2 = pd.DataFrame(X)
+    # data2.columns = ['ft1', 'ft2', 'ft3', 'ft4', 'ft5', 'ft6', 'ft7', 'ft8', 'ft9']
+    # print(data2)
+
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2
     )
 
     clf = DecisionTree(max_depth=10)
+    clf1 = DecisionTreeClassifier(criterion="entropy")
     clf.fit(X_train, y_train)
+    clf1.fit(X_train, y_train)
     predictions = clf.predict(X_test)   
 
     acc = accuracy(y_test, predictions)
 
     print("Confusion Matrix: \n", _confusion_matrix(y_test, predictions)[0], "\n", _confusion_matrix(y_test, predictions)[1])
     print(f'{acc*100:.4f}%' )
+    
+    features = [
+        'Clump Thickness',
+        'Uniformity of Cell Size',
+        'Uniformity of Cell Shape', 
+        'Marginal Adhesion', 
+        'Single Epithelial Cell Size', 
+        'Bare Nuclei', 
+        'Bland Chromatin', 
+        'Normal Nucleoli', 
+        'Mitoses']
+        
+    clf.print_tree(feature_names=features)
+
+    # print(tree.export_text(clf1, show_weights=True))

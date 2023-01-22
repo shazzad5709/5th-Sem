@@ -14,11 +14,12 @@ class Node:
 
 
 class DecisionTree:
-    def __init__(self, min_samples_split=2, max_depth=100, n_features=None):
+    def __init__(self, min_samples_split=2, max_depth=100, n_features=None, report=""):
         self.min_samples_split=min_samples_split
         self.max_depth=max_depth
         self.n_features=n_features
         self.root=None
+        self.report=""
 
 
     def fit(self, X, y):
@@ -117,3 +118,48 @@ class DecisionTree:
         if x[node.feature] <= node.threshold:
             return self._traverse_tree(x, node.left)
         return self._traverse_tree(x, node.right)
+
+
+    def print_tree(self, *, feature_names=None, spacing=3):
+        if feature_names:
+            feature_names_ = [
+                feature_names[i] for i in range(self.n_features)
+            ]
+        else:
+            feature_names_ = ["feature_{}".format(i) for i in range(self.n_features)]
+
+        class_name = {2: 'Bening', 4: 'Malignant'}
+        
+        self.print_tree_recurse(self.root, 1, spacing, class_name, feature_names_)
+        print(self.report)
+
+    def _add_leaf(self, value, class_name, indent):
+        value_fmt = "{}{}{}\n"
+        val = " class: "+str(class_name[value])
+        self.report += value_fmt.format(indent, "", val)
+
+
+    def print_tree_recurse(self, node, depth, spacing, class_name, feature_names_):
+        right_child_fmt = "{} {} <= {}\n"
+        left_child_fmt = "{} {} > {}\n"
+        indent = ("|" + (" " * spacing)) * depth
+        indent = indent[:-spacing] + "-" * spacing
+        value = node.value
+
+        info_fmt = ''
+        info_fmt_left = info_fmt
+        info_fmt_right = info_fmt
+
+        if node.is_leaf_node():
+            self._add_leaf(value, class_name, indent)
+        else:
+            name = feature_names_[node.feature]
+            threshold = node.threshold
+            threshold = '{1:.{0}f}'.format(2, threshold)
+            self.report += right_child_fmt.format(indent, name, threshold)
+            self.report += info_fmt_left
+            self.print_tree_recurse(node.left, depth+1, spacing, class_name, feature_names_)
+
+            self.report += left_child_fmt.format(indent, name, threshold)
+            self.report += info_fmt_right
+            self.print_tree_recurse(node.right, depth+1, spacing, class_name, feature_names_)
