@@ -34,7 +34,7 @@ if __name__ == '__main__':
     # print(data2)
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=1234
+        X, y, test_size=0.2
     )
 
     clf = DecisionTree(max_depth=10)
