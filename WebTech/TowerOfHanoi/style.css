@@ -1,50 +1,69 @@
+#stackA, #stackB, #stackC {
+    display: inline-block;
+    width: 6.25rem;
+    height: 6.25rem;
+    margin: 0.625rem;
+    margin-right: 1.25rem;
+}
+
+#stackB, #stackC {
+    margin-left: 1.4rem;
+}
+
 body {
     font-family: 'Monaco';
-    margin: 5px;
+    
 }
-.row, .col  {
-    outline-width: 2px;
-    outline-color: black;
+
+.bgimage {
+    height: 100vh;
+    background: url('asdf.jpg');
+    background-size: cover;
+    position: relative;
 }
 
 .col {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+    margin-left: 1.25rem;
 }
-.card {
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    
+}
+
+.box {
     width: 100%;
-    text-align: center;
-    outline-width: 1px;
-    outline-color: black;
-    margin-top: auto;
-    margin-bottom: 5px;
-    background-color: #294E4A;
+    height: 5rem;
+    margin: 0.625rem;
+    background-color: #034e3e;
     color: white;
-    height: 35px;
+    text-align: center;
+    line-height: 5rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-size: 1.5rem;
 }
 
 .btn {
-    width: 100%;
-    height: 35px;
+    width: 8rem;
+    margin-top: 1.25rem;
     text-align: center;
-    margin-top: auto;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.cb {
-    background-color: #D49D89;
-}
-
-.cardrow {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+#whee {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
 }

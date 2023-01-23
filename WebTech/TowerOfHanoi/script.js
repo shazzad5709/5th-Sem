@@ -1,55 +1,127 @@
-let btnlist = ['1', '2', '3', '4'];
-shuffle(btnlist);
-const start = document.getElementById("first");
+let stackA = [1, 2, 3, 4];
+let stackB = [];
+let stackC = [];
 
-function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-    while (currentIndex != 0) {
+// Shuffle the elements in stackA
+stackA = shuffle(stackA);
 
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+// Display the initial state of the stacks
+displayStacks();
 
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
+// Add event listeners for clicking on the stacks
+// let stacks = document.querySelectorAll("#stackA, #stackB, #stackC");
+// stacks.forEach(stack => stack.addEventListener("click", moveBox));
+
+// Add event listener for reset button
+document.querySelector("#reset").addEventListener("click", reset);
+
+function moveAtoB() {
+    if (stackA.length > 0) {
+      let box = stackA.pop();
+      stackB.push(box);
+      displayStacks();
     }
+  }
   
-    return array;
+  // Move box from stackA to stackC function
+  function moveAtoC() {
+    if (stackA.length > 0) {
+      let box = stackA.pop();
+      stackC.push(box);
+      displayStacks();
+    }
+  }
+  
+  // Move box from stackB to stackA function
+  function moveBtoA() {
+    if (stackB.length > 0) {
+      let box = stackB.pop();
+      stackA.push(box);
+      displayStacks();
+    }
+  }
+  
+  // Move box from stackB to stackC function
+  function moveBtoC() {
+    if (stackB.length > 0) {
+      let box = stackB.pop();
+      stackC.push(box);
+      displayStacks();
+    }
+  }
+  
+  // Move box from stackC to stackA function
+  function moveCtoA() {
+    if (stackC.length > 0) {
+      let box = stackC.pop();
+      stackA.push(box);
+      displayStacks();
+    }
+  }
+  
+  // Move box from stackC to stackB function
+  function moveCtoB() {
+    if (stackC.length > 0) {
+      let box = stackC.pop();
+      stackB.push(box);
+      displayStacks();
+    }
   }
 
-function startNewGame() {
-    for(let i=0; i<4; i++) {
-        start.insertAdjacentHTML("afterend", '<button type="button" class="btn btn-light cb">' + btnlist[i] +'</button>');
+function displayStacks() {
+    let stackADiv = document.querySelector("#stackA");
+    let stackBDiv = document.querySelector("#stackB");
+    let stackCDiv = document.querySelector("#stackC");
+    stackADiv.innerHTML = "";
+    stackBDiv.innerHTML = "";
+    stackCDiv.innerHTML = "";
+    for (let i = stackA.length - 1; i >= 0; i--) {
+        let box = document.createElement("div");
+        box.classList.add("box");
+        box.classList.add("row");
+        box.innerHTML = stackA[i];
+        stackADiv.appendChild(box);
+    }
+    for (let i = stackB.length - 1; i >= 0; i--) {
+        let box = document.createElement("div");
+        box.classList.add("box");
+        box.classList.add("row");
+        box.innerHTML = stackB[i];
+        stackBDiv.appendChild(box);
+    }
+    for (let i = stackC.length - 1; i >= 0; i--) {
+        let box = document.createElement("div");
+        box.classList.add("box");
+        box.classList.add("row");
+        box.innerHTML = stackC[i];
+        stackCDiv.appendChild(box);
     }
 }
 
-function move(from, to) {
-    let fromNode = document.getElementById(from);
-    let toNode = document.getElementById(to);
-    toNode.insertBefore(fromNode.firstElementChild, toNode.firstElementChild);
+function checkWin() {
+    if ((stackB.length === 4 && stackB.join("") === "4321") 
+        || (stackC.length === 4 && stackC.join("") === "4321")) {
+        alert("You won!");
+        reset();
+    }
 }
 
-function move12() {
-    move("first", "second");
+function reset() {
+    stackA = [1, 2, 3, 4];
+    stackB = [];
+    stackC = [];
+    stackA = shuffle(stackA);
+    displayStacks();
 }
 
-function move13() {
-    move("first", "third");
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
 }
-
-function move21() {
-    move("second", "first");
-}
-
-function move23() {
-    move("second", "third");
-}
-
-function move31() {
-    move("third", "first");
-}
-
-function move32() {
-    move("third", "second");
-}
-
-
