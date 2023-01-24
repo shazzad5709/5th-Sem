@@ -18,7 +18,12 @@ document.querySelector("#reset").addEventListener("click", reset);
 function moveAtoB() {
     if (stackA.length > 0) {
       let box = stackA.pop();
-      stackB.push(box);
+      if(box<stackB[stackB.length-1] || stackB.length===0) {
+        stackB.push(box);
+      }
+      else {
+        stackA.push(box);
+      }
       displayStacks();
     }
   }
@@ -27,7 +32,12 @@ function moveAtoB() {
   function moveAtoC() {
     if (stackA.length > 0) {
       let box = stackA.pop();
-      stackC.push(box);
+      if(box<stackC[stackC.length-1] || stackC.length===0) {
+        stackC.push(box);
+      }
+      else {
+        stackA.push(box);
+      }
       displayStacks();
     }
   }
@@ -36,7 +46,12 @@ function moveAtoB() {
   function moveBtoA() {
     if (stackB.length > 0) {
       let box = stackB.pop();
-      stackA.push(box);
+      if(box<stackA[stackA.length-1] || stackA.length===0) {
+        stackA.push(box);
+      }
+      else {
+        stackB.push(box);
+      }
       displayStacks();
     }
   }
@@ -45,7 +60,12 @@ function moveAtoB() {
   function moveBtoC() {
     if (stackB.length > 0) {
       let box = stackB.pop();
-      stackC.push(box);
+      if(box<stackC[stackC.length-1] || stackC.length===0) {
+        stackC.push(box);
+      }
+      else {
+        stackB.push(box);
+      }
       displayStacks();
     }
   }
@@ -54,7 +74,12 @@ function moveAtoB() {
   function moveCtoA() {
     if (stackC.length > 0) {
       let box = stackC.pop();
-      stackA.push(box);
+      if(box<stackA[stackA.length-1] || stackA.length===0) {
+        stackA.push(box);
+      }
+      else {
+        stackC.push(box);
+      }
       displayStacks();
     }
   }
@@ -63,7 +88,12 @@ function moveAtoB() {
   function moveCtoB() {
     if (stackC.length > 0) {
       let box = stackC.pop();
-      stackB.push(box);
+      if(box<stackB[stackB.length-1] || stackB.length===0) {
+        stackB.push(box);
+      }
+      else {
+        stackC.push(box);
+      }
       displayStacks();
     }
   }
