@@ -16,142 +16,143 @@ displayStacks();
 document.querySelector("#reset").addEventListener("click", reset);
 
 function moveAtoB() {
-    if (stackA.length > 0) {
-      let box = stackA.pop();
-      if(box<stackB[stackB.length-1] || stackB.length===0) {
-        stackB.push(box);
-      }
-      else {
-        stackA.push(box);
-      }
-      displayStacks();
+  if (stackA.length > 0) {
+    let box = stackA.pop();
+    if (box < stackB[stackB.length - 1] || stackB.length === 0) {
+      stackB.push(box);
+    } else {
+      stackA.push(box);
     }
+    displayStacks();
   }
-  
-  // Move box from stackA to stackC function
-  function moveAtoC() {
-    if (stackA.length > 0) {
-      let box = stackA.pop();
-      if(box<stackC[stackC.length-1] || stackC.length===0) {
-        stackC.push(box);
-      }
-      else {
-        stackA.push(box);
-      }
-      displayStacks();
+}
+
+// Move box from stackA to stackC function
+function moveAtoC() {
+  if (stackA.length > 0) {
+    let box = stackA.pop();
+    if (box < stackC[stackC.length - 1] || stackC.length === 0) {
+      stackC.push(box);
+    } else {
+      stackA.push(box);
     }
+    displayStacks();
   }
-  
-  // Move box from stackB to stackA function
-  function moveBtoA() {
-    if (stackB.length > 0) {
-      let box = stackB.pop();
-      if(box<stackA[stackA.length-1] || stackA.length===0) {
-        stackA.push(box);
-      }
-      else {
-        stackB.push(box);
-      }
-      displayStacks();
+}
+
+// Move box from stackB to stackA function
+function moveBtoA() {
+  if (stackB.length > 0) {
+    let box = stackB.pop();
+    if (box < stackA[stackA.length - 1] || stackA.length === 0) {
+      stackA.push(box);
+    } else {
+      stackB.push(box);
     }
+    displayStacks();
   }
-  
-  // Move box from stackB to stackC function
-  function moveBtoC() {
-    if (stackB.length > 0) {
-      let box = stackB.pop();
-      if(box<stackC[stackC.length-1] || stackC.length===0) {
-        stackC.push(box);
-      }
-      else {
-        stackB.push(box);
-      }
-      displayStacks();
+}
+
+// Move box from stackB to stackC function
+function moveBtoC() {
+  if (stackB.length > 0) {
+    let box = stackB.pop();
+    if (box < stackC[stackC.length - 1] || stackC.length === 0) {
+      stackC.push(box);
+    } else {
+      stackB.push(box);
     }
+    displayStacks();
   }
-  
-  // Move box from stackC to stackA function
-  function moveCtoA() {
-    if (stackC.length > 0) {
-      let box = stackC.pop();
-      if(box<stackA[stackA.length-1] || stackA.length===0) {
-        stackA.push(box);
-      }
-      else {
-        stackC.push(box);
-      }
-      displayStacks();
+}
+
+// Move box from stackC to stackA function
+function moveCtoA() {
+  if (stackC.length > 0) {
+    let box = stackC.pop();
+    if (box < stackA[stackA.length - 1] || stackA.length === 0) {
+      stackA.push(box);
+    } else {
+      stackC.push(box);
     }
+    displayStacks();
   }
-  
-  // Move box from stackC to stackB function
-  function moveCtoB() {
-    if (stackC.length > 0) {
-      let box = stackC.pop();
-      if(box<stackB[stackB.length-1] || stackB.length===0) {
-        stackB.push(box);
-      }
-      else {
-        stackC.push(box);
-      }
-      displayStacks();
+}
+
+// Move box from stackC to stackB function
+function moveCtoB() {
+  if (stackC.length > 0) {
+    let box = stackC.pop();
+    if (box < stackB[stackB.length - 1] || stackB.length === 0) {
+      stackB.push(box);
+    } else {
+      stackC.push(box);
     }
+    displayStacks();
   }
+}
 
 function displayStacks() {
-    let stackADiv = document.querySelector("#stackA");
-    let stackBDiv = document.querySelector("#stackB");
-    let stackCDiv = document.querySelector("#stackC");
-    stackADiv.innerHTML = "";
-    stackBDiv.innerHTML = "";
-    stackCDiv.innerHTML = "";
-    for (let i = stackA.length - 1; i >= 0; i--) {
-        let box = document.createElement("div");
-        box.classList.add("box");
-        box.classList.add("row");
-        box.innerHTML = stackA[i];
-        stackADiv.appendChild(box);
-    }
-    for (let i = stackB.length - 1; i >= 0; i--) {
-        let box = document.createElement("div");
-        box.classList.add("box");
-        box.classList.add("row");
-        box.innerHTML = stackB[i];
-        stackBDiv.appendChild(box);
-    }
-    for (let i = stackC.length - 1; i >= 0; i--) {
-        let box = document.createElement("div");
-        box.classList.add("box");
-        box.classList.add("row");
-        box.innerHTML = stackC[i];
-        stackCDiv.appendChild(box);
-    }
+  let stackADiv = document.querySelector("#stackA");
+  let stackBDiv = document.querySelector("#stackB");
+  let stackCDiv = document.querySelector("#stackC");
+  stackADiv.innerHTML = "";
+  stackBDiv.innerHTML = "";
+  stackCDiv.innerHTML = "";
+  for (let i = stackA.length - 1; i >= 0; i--) {
+    let box = document.createElement("div");
+    box.classList.add("box");
+    box.classList.add("row");
+    box.innerHTML = stackA[i];
+    stackADiv.appendChild(box);
+  }
+  for (let i = stackB.length - 1; i >= 0; i--) {
+    let box = document.createElement("div");
+    box.classList.add("box");
+    box.classList.add("row");
+    box.innerHTML = stackB[i];
+    stackBDiv.appendChild(box);
+  }
+  for (let i = stackC.length - 1; i >= 0; i--) {
+    let box = document.createElement("div");
+    box.classList.add("box");
+    box.classList.add("row");
+    box.innerHTML = stackC[i];
+    stackCDiv.appendChild(box);
+  }
 }
 
 function checkWin() {
-    if ((stackB.length === 4 && stackB.join("") === "4321") 
-        || (stackC.length === 4 && stackC.join("") === "4321")) {
-        alert("You won!");
-        reset();
-    }
+  if (
+    (stackA.length === 4 && stackA.join("") === "4321") ||
+    (stackB.length === 4 && stackB.join("") === "4321") ||
+    (stackC.length === 4 && stackC.join("") === "4321")
+  ) {
+    alert("You won!");
+    reset();
+  }
 }
 
 function reset() {
-    stackA = [1, 2, 3, 4];
-    stackB = [];
-    stackC = [];
-    stackA = shuffle(stackA);
-    displayStacks();
+  stackA = [1, 2, 3, 4];
+  stackB = [];
+  stackC = [];
+  stackA = shuffle(stackA);
+  if(stackA.join("") === "4321")
+    reset();
+  displayStacks();
 }
 
 function shuffle(array) {
-    let currentIndex = array.length, temporaryValue, randomIndex;
-    while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-    return array;
+  let currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
 }
