@@ -99,6 +99,9 @@ class DecisionTree:
         hist = np.bincount(y)
         ps = hist / len(y)
         return -np.sum([p * np.log(p) for p in ps if p>0])
+        # values, count = np.unique(y, return_counts=True)
+        # ps = count / len(y)
+        # return -np.sum([p * np.log(p) for p in ps if p>0])
 
 
     def _most_common_label(self, y):
@@ -129,13 +132,15 @@ class DecisionTree:
             feature_names_ = ["feature_{}".format(i) for i in range(self.n_features)]
 
         class_name = {2: 'Bening', 4: 'Malignant'}
-        
+        # class_name = {1: 'Bening', 0: 'Malignant'}
+        # class_name = {0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'}
+
         self.print_tree_recurse(self.root, 1, spacing, class_name, feature_names_)
         print(self.report)
 
     def _add_leaf(self, value, class_name, indent):
         value_fmt = "{}{}{}\n"
-        val = " class: "+str(class_name[value])
+        val = " class: "+str(class_name[int(value)])
         self.report += value_fmt.format(indent, "", val)
 
 
