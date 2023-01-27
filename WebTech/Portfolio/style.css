@@ -19,7 +19,7 @@
     left: 50%;
     transform: translate(-50%, -55%);
     color: white;
-    font-family: 'Amaranth';
+    font-family: 'Avenir';
 }
 /* about section image css */
 .imageAboutPage {
@@ -27,7 +27,7 @@
 }
 
 #top {
-    font-family: 'Lucida Calligraphy';
+    font-family: 'Amaranth';
 }
 
 /* awards section css */
