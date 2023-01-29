@@ -138,6 +138,7 @@ class DecisionTree:
         self.print_tree_recurse(self.root, 1, spacing, class_name, feature_names_)
         print(self.report)
 
+
     def _add_leaf(self, value, class_name, indent):
         value_fmt = "{}{}{}\n"
         val = " class: "+str(class_name[int(value)])
