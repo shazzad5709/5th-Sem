@@ -2,11 +2,8 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
 from DecisionTree import DecisionTree
-from sklearn import tree
 from numpy import genfromtxt
-from sklearn.tree import DecisionTreeClassifier
 
 
 def _confusion_matrix(y_true, y_pred):
@@ -24,14 +21,10 @@ def accuracy(y_test, y_pred):
 
 
 if __name__ == '__main__':
-    data = np.genfromtxt('DBMS/DecisionTree/Data/Breast_cancer_data.csv', dtype = 'i8', delimiter=',')
+    data = np.genfromtxt('DBMS/DecisionTree/Data/Breast_cancer_data.csv', dtype='i8', delimiter=',')
     data = data[:,1:]
     data[:,[8,0]]=data[:,[0,8]]
     X, y = data[:, 0:-1], data[:, -1]
-
-    # data2 = pd.DataFrame(X)
-    # data2.columns = ['ft1', 'ft2', 'ft3', 'ft4', 'ft5', 'ft6', 'ft7', 'ft8', 'ft9']
-    # print(data2)
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2
@@ -44,7 +37,9 @@ if __name__ == '__main__':
     acc = accuracy(y_test, predictions)
 
     # print("Confusion Matrix: \n", _confusion_matrix(y_test, predictions)[0], "\n", _confusion_matrix(y_test, predictions)[1])
-    print(f'{acc*100:.4f}%' )
+    print(f'Accuracy: {acc*100:.4f}%\n')
+    print('-'*20)
+    print('\n')
     
     features = [
         'Clump Thickness',
@@ -55,6 +50,24 @@ if __name__ == '__main__':
         'Bare Nuclei', 
         'Bland Chromatin', 
         'Normal Nucleoli', 
-        'Mitoses']
+        'Mitoses'
+    ]
+
+    # feature_iris = [
+    #      'sepal length', 'sepal width', 'petal length', 'petal width'
+    # ]
+
+    # feature_breast_cancer = [
+    #     'mean radius', 'mean texture', 'mean perimeter', 'mean area',
+    #     'mean smoothness', 'mean compactness', 'mean concavity',
+    #     'mean concave points', 'mean symmetry', 'mean fractal dimension',
+    #     'radius error', 'texture error', 'perimeter error', 'area error',
+    #     'smoothness error', 'compactness error', 'concavity error',
+    #     'concave points error', 'symmetry error',
+    #     'fractal dimension error', 'worst radius', 'worst texture',
+    #     'worst perimeter', 'worst area', 'worst smoothness',
+    #     'worst compactness', 'worst concavity', 'worst concave points',
+    #     'worst symmetry', 'worst fractal dimension'
+    # ]
 
     clf.print_tree(feature_names=features)
