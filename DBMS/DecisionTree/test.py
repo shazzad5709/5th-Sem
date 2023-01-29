@@ -70,4 +70,8 @@ if __name__ == '__main__':
     #     'worst symmetry', 'worst fractal dimension'
     # ]
 
-    clf.print_tree(feature_names=features)
+    class_name = {2: 'Bening', 4: 'Malignant'}
+    # class_name = {1: 'Bening', 0: 'Malignant'}
+    # class_name = {0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'}
+
+    clf.print_tree(feature_names=features, class_name=class_name)
