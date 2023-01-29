@@ -123,7 +123,7 @@ class DecisionTree:
         return self._traverse_tree(x, node.right)
 
 
-    def print_tree(self, *, feature_names=None, spacing=3):
+    def print_tree(self, *, feature_names=None, spacing=3, class_name=None):
         if feature_names:
             feature_names_ = [
                 feature_names[i] for i in range(self.n_features)
@@ -131,7 +131,7 @@ class DecisionTree:
         else:
             feature_names_ = ["feature_{}".format(i) for i in range(self.n_features)]
 
-        class_name = {2: 'Bening', 4: 'Malignant'}
+        # class_name = {2: 'Bening', 4: 'Malignant'}
         # class_name = {1: 'Bening', 0: 'Malignant'}
         # class_name = {0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'}
 
