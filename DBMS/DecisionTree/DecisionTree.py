@@ -96,12 +96,12 @@ class DecisionTree:
 
 
     def _entropy(self, y):
-        hist = np.bincount(y)
-        ps = hist / len(y)
-        return -np.sum([p * np.log(p) for p in ps if p>0])
-        # values, count = np.unique(y, return_counts=True)
-        # ps = count / len(y)
+        # hist = np.bincount(y)
+        # ps = hist / len(y)
         # return -np.sum([p * np.log(p) for p in ps if p>0])
+        values, count = np.unique(y, return_counts=True)
+        ps = count / len(y)
+        return -np.sum([p * np.log(p) for p in ps if p>0])
 
 
     def _most_common_label(self, y):
@@ -123,7 +123,7 @@ class DecisionTree:
         return self._traverse_tree(x, node.right)
 
 
-    def print_tree(self, *, feature_names=None, spacing=3, class_name=None):
+    def print_tree(self, *, feature_names=None, spacing=3, class_names=None):
         if feature_names:
             feature_names_ = [
                 feature_names[i] for i in range(self.n_features)
@@ -131,11 +131,7 @@ class DecisionTree:
         else:
             feature_names_ = ["feature_{}".format(i) for i in range(self.n_features)]
 
-        # class_name = {2: 'Bening', 4: 'Malignant'}
-        # class_name = {1: 'Bening', 0: 'Malignant'}
-        # class_name = {0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'}
-
-        self.print_tree_recurse(self.root, 1, spacing, class_name, feature_names_)
+        self.print_tree_recurse(self.root, 1, spacing, class_names, feature_names_)
         print(self.report)
 
 

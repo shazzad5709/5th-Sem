@@ -1,4 +1,3 @@
-from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
@@ -20,14 +19,10 @@ def accuracy(y_test, y_pred):
     return np.sum(y_test == y_pred) / len(y_test)
 
 
-if __name__ == '__main__':
-    data = np.genfromtxt('DBMS/DecisionTree/Data/Breast_cancer_data.csv', dtype='i8', delimiter=',')
-    data = data[:,1:]
-    data[:,[8,0]]=data[:,[0,8]]
-    X, y = data[:, 0:-1], data[:, -1]
 
+def train_and_test(X=None, y=None, class_names=None, feature_names=None):
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2
+        X, y, test_size=0.2, random_state=1234
     )
 
     clf = DecisionTree(max_depth=10)
@@ -40,38 +35,4 @@ if __name__ == '__main__':
     print(f'Accuracy: {acc*100:.4f}%\n')
     print('-'*20)
     print('\n')
-    
-    features = [
-        'Clump Thickness',
-        'Uniformity of Cell Size',
-        'Uniformity of Cell Shape', 
-        'Marginal Adhesion', 
-        'Single Epithelial Cell Size', 
-        'Bare Nuclei', 
-        'Bland Chromatin', 
-        'Normal Nucleoli', 
-        'Mitoses'
-    ]
-
-    # feature_iris = [
-    #      'sepal length', 'sepal width', 'petal length', 'petal width'
-    # ]
-
-    # feature_breast_cancer = [
-    #     'mean radius', 'mean texture', 'mean perimeter', 'mean area',
-    #     'mean smoothness', 'mean compactness', 'mean concavity',
-    #     'mean concave points', 'mean symmetry', 'mean fractal dimension',
-    #     'radius error', 'texture error', 'perimeter error', 'area error',
-    #     'smoothness error', 'compactness error', 'concavity error',
-    #     'concave points error', 'symmetry error',
-    #     'fractal dimension error', 'worst radius', 'worst texture',
-    #     'worst perimeter', 'worst area', 'worst smoothness',
-    #     'worst compactness', 'worst concavity', 'worst concave points',
-    #     'worst symmetry', 'worst fractal dimension'
-    # ]
-
-    class_name = {2: 'Bening', 4: 'Malignant'}
-    # class_name = {1: 'Bening', 0: 'Malignant'}
-    # class_name = {0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'}
-
-    clf.print_tree(feature_names=features, class_name=class_name)
+    clf.print_tree(feature_names=feature_names, class_names=class_names)
