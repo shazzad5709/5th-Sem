@@ -14,12 +14,10 @@ public class ConcreteObserver implements Observer {
 
     @Override
     public void update(Subject subject) {
-        this.fileSubject = (ConcreteSubject)subject;
-        System.out.println("Changes: " + "Observer " + this.observerID + " --- " + ((ConcreteSubject) fileSubject).getTime() + " --- " + ((ConcreteSubject) fileSubject).getFileName() + " was modified");
+        this.fileSubject = (ConcreteSubject) subject;
+        System.out.println(
+                "Changes: " + "Observer " + this.observerID + " --- " + ((ConcreteSubject) fileSubject).getTime()
+                        + " --- " + ((ConcreteSubject) fileSubject).getFileName() + " was modified");
     }
 
-    public void draw() {
-        System.out.println("Observer " + this.observerID + " is drawing");
-    }
-    
 }

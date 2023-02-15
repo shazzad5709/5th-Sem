@@ -13,11 +13,5 @@ public class Main {
         Observer observer5 = new ConcreteObserver(monitor);
 
         monitor.monitor();
-
-        observer1.draw();
-        observer2.draw();
-        observer3.draw();
-        observer4.draw();
-        observer5.draw();
     }
 }

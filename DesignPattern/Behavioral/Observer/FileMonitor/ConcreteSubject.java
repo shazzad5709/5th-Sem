@@ -26,7 +26,7 @@ public class ConcreteSubject implements Subject {
     @Override
     public void register(Observer newObserver) {
         this.observers.add(newObserver);
-        
+
     }
 
     @Override
@@ -41,15 +41,15 @@ public class ConcreteSubject implements Subject {
         for (Observer observer : observers) {
             observer.update(this);
         }
-        
+
     }
-    
+
     @Override
     public void monitor() throws IOException, InterruptedException {
         Path path = Paths.get(pathStr);
         try (final WatchService watchService = FileSystems.getDefault().newWatchService()) {
             final WatchKey watchKey = path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
-            while(true) {
+            while (true) {
                 final WatchKey wk = watchService.take();
                 for (WatchEvent<?> event : wk.pollEvents()) {
                     final Path changed = (Path) event.context();
