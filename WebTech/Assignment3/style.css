@@ -37,3 +37,23 @@ form {
 .custom-btn {
     width: 10rem;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    
+}
+
+.picture {
+    grid-row: span 2;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    
+}
+
+#upload-img {
+    clip-path: circle();
+    max-width: 100%;
+}

@@ -1,29 +1,3 @@
-<?php
-$fname = $lname = $email = $address = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $email = $_POST["email"];
-    $address = $_POST["address"];
-    $photo = $_FILES["photo"]["name"];
-
-    if (!empty($fname) && !empty($lname) && !empty($email) && !empty($address) && !empty($photo)) {
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($photo);
-        move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
-        
-    }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +9,7 @@ function test_input($data) {
         <title>MySite</title>
     </head>
     <body>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form method="post" enctype="multipart/form-data" action="action.php">
             <div class="row mb-3">
                 <label for="fname" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-4">
@@ -61,7 +35,7 @@ function test_input($data) {
             <div class="row mb-3">
                 <label for="photo" class="col-sm-2 col-form-label">Photo</label>
                 <div class="col-sm-10">
-                    <input required name="photo" class="form-control" type="file" id="photo">
+                    <input required name="photo" accept="image/*" class="form-control" type="file" id="photo">
                 </div>
             </div>
             <div class="row mb-3 btn-cls">
