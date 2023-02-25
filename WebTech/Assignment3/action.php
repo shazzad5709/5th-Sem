@@ -1,31 +1,3 @@
-<?php
-$fname = $lname = $email = $address = "";
-$photo = array();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $fname = $_POST["fname"];
-  $lname = $_POST["lname"];
-  $email = $_POST["email"];
-  $address = $_POST["address"];
-  $photo = $_FILES["photo"]["name"];
-
-  if (!empty($fname) && !empty($lname) && !empty($email) && !empty($address) && !empty($photo)) {
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($photo);
-    move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
-  }
-}
-
-function test_input($data)
-{
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,27 +13,31 @@ function test_input($data)
 
 <body>
   <div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box picture">
+      <?php echo ('<img src= "' . $_GET["photo"] . '" id="upload-img">'); ?>
+    </div>
     <div class="box">
       <?php echo ("<p>Name<p>"); ?>
     </div>
     <div class="box">
-      <?php echo ("<p>$fname $lname<p>"); ?>
+      <?php echo ("<p>".$_GET["first-name"]." ".$_GET["last-name"]."<p>"); ?>
     </div>
-    <div class="box picture">
-      <?php echo ('<img src= "' . $target_file . '" id="upload-img">'); ?>
-    </div>
+    
     <div class="box">
       <?php echo ("<p>Email<p>"); ?>
     </div>
     <div class="box">
-      <?php echo ("<p>" . $email . "<p>"); ?>
+      <?php echo ("<p>" . $_GET["email"] . "<p>"); ?>
     </div>
     <div class="box">
       <?php echo ("<p>Address<p>"); ?>
     </div>
     <div class="box">
-      <?php echo ("<p>" . $address . "<p>"); ?>
+      <?php echo ("<p>" . $_GET["address"] . "<p>"); ?>
     </div>
+    <div class="box"></div>
   </div>
 </body>
 
