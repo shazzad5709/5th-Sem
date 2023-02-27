@@ -1,10 +1,10 @@
 package DesignPattern.Behavioral.Observer.FileMonitor;
 
-import java.io.IOException;
+import java.util.ArrayList;
 
-public interface Subject {
-    public void register(Observer o);
-    public void unregister(Observer o);
-    public void notifyObserver();
-    public void monitor() throws IOException, InterruptedException;
+public abstract class Subject {
+    ArrayList<Observer> observersArrayList = new ArrayList<>();
+    public abstract void registeredObserver(Observer observers);
+    public abstract void unregisteredObserver(Observer observers);
+    public abstract void notifyy(String fileName, String changeType, String changeTime);
 }
