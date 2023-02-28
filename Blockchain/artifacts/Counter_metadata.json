@@ -7,15 +7,29 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "message",
+				"name": "count",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "uint256",
 						"name": "",
-						"type": "string"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dec",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "inc",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -32,7 +46,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"test.sol": "HelloWorld"
+			"Counter.sol": "Counter"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -46,12 +60,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"test.sol": {
-			"keccak256": "0xaa00897fe4730e7dfc117d4caef2b5a81d6d8157fdabe0f85ba9f96b314523ac",
+		"Counter.sol": {
+			"keccak256": "0x72fc62814770f8dd7cb519c826e6197ba88629f534464c998504c6da3d64dae0",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://73640eff00152f967a3ff57941ba589bb966ddec98aa777663ffc18f510743ac",
-				"dweb:/ipfs/QmYB25udSfn4bga3YXhu4JA7EchY2CCMGaGN9ZAZvDhPs5"
+				"bzz-raw://a13e45a6bbfda0aca281ae56678796e90961bd5fa297d5eff458444b9c95769f",
+				"dweb:/ipfs/QmYrtCL6TJm9JHxBPJbyZZP8gBsDavspRKrjbWRESCFatu"
 			]
 		}
 	},

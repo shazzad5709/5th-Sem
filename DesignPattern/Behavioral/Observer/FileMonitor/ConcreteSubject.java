@@ -13,69 +13,55 @@ import java.nio.file.WatchService;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ConcreteSubject implements Subject {
-    private List<Observer> observers;
-    private String fileName = "test";
-    private String pathStr = ".";
-    private String time = null;
-
-    public ConcreteSubject() {
-        observers = new ArrayList<Observer>();
+class ConcreteSubject extends Subject{
+    private String fileName;
+    private String path;
+    @Override
+    public void registeredObserver(Observer observer) {
+        observersArrayList.add(observer);
     }
 
     @Override
-    public void register(Observer newObserver) {
-        this.observers.add(newObserver);
-        
+    public void unregisteredObserver(Observer observer) {
+        observersArrayList.remove(observer);
     }
 
     @Override
-    public void unregister(Observer deleteObserver) {
-        int observerIdx = observers.indexOf(deleteObserver);
-        System.out.println("Observer " + (observerIdx + 1) + " deleted");
-        this.observers.remove(deleteObserver);
-    }
-
-    @Override
-    public void notifyObserver() {
-        for (Observer observer : observers) {
-            observer.update(this);
+    public void notifyy(String fileName, String changeType, String changeTime) {
+        for (Observer itr: observersArrayList) {
+            itr.update(fileName,changeType,changeTime);
         }
-        
     }
-    
-    @Override
-    public void monitor() throws IOException, InterruptedException {
+    public ConcreteSubject(String fileName, String path){
+        this.fileName=fileName;
+        this.path=path;
+    }
+    public void getUpdate() throws IOException, InterruptedException {
+        String pathStr = ".";
         Path path = Paths.get(pathStr);
+        System.out.println(path);
         try (final WatchService watchService = FileSystems.getDefault().newWatchService()) {
             final WatchKey watchKey = path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
-            while(true) {
+            while (true) {
                 final WatchKey wk = watchService.take();
                 for (WatchEvent<?> event : wk.pollEvents()) {
                     final Path changed = (Path) event.context();
                     System.out.println(changed);
-
-                    if (changed.endsWith(fileName)) {
-                        Calendar cal = Calendar.getInstance();
-                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-                        time = sdf.format(cal.getTime());
-                        notifyObserver();
+                    System.out.println(event.kind());
+                    System.out.println(changed);
+                    if (changed.endsWith("a")) {
+                        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+                        System.out.println("My file has changed at "+timeStamp);
                     }
                 }
-
+                // reset the key
                 boolean valid = wk.reset();
                 if (!valid) {
-                    System.out.println("Key has been unregisterede");
+                    System.out.println("Key has been unregistered");
                 }
             }
+        } catch(Exception err){
+            err.printStackTrace();
         }
-    }
-
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public String getTime() {
-        return this.time;
     }
 }

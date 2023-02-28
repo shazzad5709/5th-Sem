@@ -1,9 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
-
 * {
     font-family: 'Muli', sans-serif;
 }
 
-.formCol {
-    align-items: left;
+:root {
+    --background-color: rgb(6, 11, 25);
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+    color: azure;
+    justify-content: center;
+}
+
+form {
+    padding-left: 25rem;
+    padding-right: 25rem;
+    display: grid;
+}
+
+.btn-cls {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.custom-btn {
+    width: 10rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    
+}
+
+.picture {
+    grid-row: span 5;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    
+}
+
+#upload-img {
+    clip-path: circle();
+    max-width: 100%;
 }

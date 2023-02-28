@@ -7,12 +7,12 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "message",
+				"name": "UINT",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "uint256",
 						"name": "",
-						"type": "string"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -32,7 +32,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"test.sol": "HelloWorld"
+			"Counter.sol": "Var"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -46,12 +46,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"test.sol": {
-			"keccak256": "0xaa00897fe4730e7dfc117d4caef2b5a81d6d8157fdabe0f85ba9f96b314523ac",
+		"Counter.sol": {
+			"keccak256": "0x64914f559d7841238c21f4a60aeda08143b91614123804ace772181a13ed0199",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://73640eff00152f967a3ff57941ba589bb966ddec98aa777663ffc18f510743ac",
-				"dweb:/ipfs/QmYB25udSfn4bga3YXhu4JA7EchY2CCMGaGN9ZAZvDhPs5"
+				"bzz-raw://5d25650be5bd00a17a174e6d54cdcd28cd180b881069fbc729afda4710722d36",
+				"dweb:/ipfs/QmTyhtaTdkzbGGCB8QhW7WbbYiMddCBVEy9hQsAQ7cBJGp"
 			]
 		}
 	},
